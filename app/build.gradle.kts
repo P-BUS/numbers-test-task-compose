@@ -76,4 +76,7 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     // Room
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room)
+    ksp(libs.androidx.room.compiler)
 }
