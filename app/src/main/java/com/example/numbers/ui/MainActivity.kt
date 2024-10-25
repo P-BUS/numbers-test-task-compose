@@ -12,7 +12,9 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.example.numbers.ui.navigation.AppNavigation
 import com.example.numbers.ui.theme.NumbersTheme
+import dagger.hilt.EntryPoint
 
+@EntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
