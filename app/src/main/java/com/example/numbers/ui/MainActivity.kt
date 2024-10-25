@@ -11,6 +11,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.example.numbers.ui.navigation.AppNavigation
 import com.example.numbers.ui.theme.NumbersTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,8 +22,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             NumbersTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    NumbersApp(
-                        modifier = Modifier.padding(innerPadding)
+                    val navController = rememberNavController()
+                    AppNavigation(
+                        modifier = Modifier.padding(innerPadding),
+                        navController = navController
                     )
                 }
             }
