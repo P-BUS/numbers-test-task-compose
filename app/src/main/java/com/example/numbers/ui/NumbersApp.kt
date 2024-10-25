@@ -1,0 +1,12 @@
+package com.example.numbers.ui
+
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.navigation.compose.rememberNavController
+
+@Composable
+fun NumbersApp(
+    modifier: Modifier = Modifier
+) {
+    val navcontroller = rememberNavController()
+}
