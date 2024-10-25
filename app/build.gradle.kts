@@ -71,5 +71,9 @@ dependencies {
     // Serialization
     implementation(libs.serialization.json)
     // Retrofit
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
     // Room
 }

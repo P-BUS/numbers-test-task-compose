@@ -13,6 +13,9 @@ navigationCompose = "2.8.3"
 hiltNavigationCompose = "1.2.0"
 serialization = "1.6.2"
 ksp = "2.0.10-1.0.24"
+okhttp = "4.12.0"
+retrofit = "2.9.0"
+converterGson = "1.0.0"
 
 
 [libraries]
@@ -36,11 +39,15 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
 
 # Dagger - Hilt
-di-hilt = { group = "com.google.dagger",name = "hilt-android", version.ref = "hiltVersion" }
+di-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hiltVersion" }
 di-hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 di-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hiltVersion" }
 
 # Retrofit
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp" }
+logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp" }
+converter-gson = { group = "com.jakewharton.retrofit", name = "retrofit2-kotlinx-serialization-converter", version.ref = "converterGson" }
 
 # Room
 
