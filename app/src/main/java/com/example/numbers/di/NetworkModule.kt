@@ -2,13 +2,11 @@ package com.example.numbers.di
 
 import com.example.numbers.data.remote.BASE_URL
 import com.example.numbers.data.remote.NumberApiService
-import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.example.numbers.data.remote.NumberFactConverterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import kotlinx.serialization.json.Json
-import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -30,11 +28,11 @@ object NetworkModule {
     @Singleton
     @Provides
     fun provideRetrofit(
-        client: OkHttpClient
+        client: OkHttpClient,
+        customConverterFactory: NumberFactConverterFactory
     ): Retrofit {
-        val networkJson = Json { ignoreUnknownKeys = true }
         return Retrofit.Builder()
-            .addConverterFactory(networkJson.asConverterFactory("application/json".toMediaType()))
+            .addConverterFactory(customConverterFactory.create())
             .client(client)
             .baseUrl(BASE_URL)
             .build()
