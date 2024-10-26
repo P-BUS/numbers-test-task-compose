@@ -29,8 +29,8 @@ fun AppNavigation(
             val searchViewModel = hiltViewModel<SearchViewModel>()
             SearchScreen(
                 viewModel = searchViewModel,
-                navigateToNumberFact = { number ->
-                    navController.navigate(NumberFact(number))
+                navigateToNumberFact = { numberFact ->
+                    navController.navigate(numberFact)
                 }
             )
         }
@@ -39,7 +39,7 @@ fun AppNavigation(
             val numberFact: NumberFact = backStackEntry.toRoute()
             NumberFactScreen(
                 viewModel = numberFactViewModel,
-                number = numberFact.number,
+                number = numberFact,
                 navigateBack = { navController.popBackStack() }
             )
         }
