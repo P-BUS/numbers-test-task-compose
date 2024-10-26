@@ -1,18 +1,10 @@
 package com.example.numbers.data.remote
 
-import com.example.numbers.data.NumberFactDto
-import javax.inject.Inject
+import com.example.numbers.data.model.NumberFactDto
 
-class NumberFactsRemoteDataSource @Inject constructor(
-    private val factsApiService: NumberApiService
-) {
-    suspend fun getNumberFact(number: String): ApiResult<NumberFactDto> =
-        handleApiResponse {
-            factsApiService.getNumberFact(number = number)
-        }
+interface NumberFactsRemoteDataSource {
 
-    suspend fun getRandomNumberFact(): ApiResult<NumberFactDto> =
-        handleApiResponse {
-            factsApiService.getRandomNumberFact()
-        }
+    suspend fun getNumberFact(number: String): ApiResult<NumberFactDto>
+
+    suspend fun getRandomNumberFact(): ApiResult<NumberFactDto>
 }

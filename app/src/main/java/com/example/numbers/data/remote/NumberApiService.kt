@@ -1,6 +1,6 @@
 package com.example.numbers.data.remote
 
-import com.example.numbers.data.NumberFactDto
+import com.example.numbers.data.model.NumberFactDto
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
