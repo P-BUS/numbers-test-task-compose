@@ -47,7 +47,7 @@ class SearchViewModel @Inject constructor(
                 initialValue = listOf()
             )
     private val _isLoading = MutableStateFlow(false)
-    private val _error = MutableStateFlow(null)
+    private val _error = MutableStateFlow(null) // not used here but it is "must have" for an app
     private val _navigationAction =
         MutableStateFlow<NavigationAction>(NavigationAction.None) // simple solution to not create more complex navigation with manager
 
@@ -82,6 +82,7 @@ class SearchViewModel @Inject constructor(
     private fun retrieveFact(number: String) {
         viewModelScope.launch {
             // usually we retrieve it from UseCase
+            // TODO: to add loading state handle
             repository.retrieveFact(number)
         }
     }
@@ -89,6 +90,7 @@ class SearchViewModel @Inject constructor(
     private fun retrieveRandomFact() {
         viewModelScope.launch {
             // usually we retrieve it from UseCase
+            // TODO: to add loading state handle
             repository.retrieveRandomFact()
         }
     }

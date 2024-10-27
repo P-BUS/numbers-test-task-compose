@@ -40,7 +40,7 @@ class NumberFactsRepositoryImpl @Inject constructor(
                         mapper.toDatabaseModel(numberFact)
                     )
                 }
-
+                // TODO: to pass errors to screen level
                 is ApiResult.Error -> Log.e(TAG, "${response.code} ${response.message}")
                 is ApiResult.Exception -> Log.e(TAG, "${response.e.cause} ${response.e.message}")
             }
@@ -56,9 +56,8 @@ class NumberFactsRepositoryImpl @Inject constructor(
                         mapper.toDatabaseModel(numberFact)
                     )
                 }
-
+                // TODO: to pass errors to screen level
                 is ApiResult.Error -> Log.e(TAG, "${response.code} ${response.message}")
-                // TODO: to remove Exception
                 is ApiResult.Exception -> Log.e(TAG, "${response.e.cause} ${response.e.message}")
             }
         }
