@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -78,7 +77,7 @@ fun SearchLayout(
         modifier = Modifier
             .fillMaxSize()
             .background(color = Color.Black)
-            .padding(horizontal = 20.dp)
+            .padding(horizontal = 30.dp)
             .statusBarsPadding()
             .navigationBarsPadding()
     ) {
@@ -124,7 +123,6 @@ fun SearchLayout(
             LazyColumn(
                 state = listState,
                 reverseLayout = true,
-                contentPadding = PaddingValues(8.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 items(items = uiState.factsList) { item ->

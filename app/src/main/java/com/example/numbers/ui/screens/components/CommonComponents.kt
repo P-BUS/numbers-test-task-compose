@@ -2,25 +2,21 @@ package com.example.numbers.ui.screens.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
@@ -33,22 +29,16 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.max
 import androidx.core.text.isDigitsOnly
 
 @Preview
@@ -64,9 +54,9 @@ fun BaseOutlinedButton(
     modifier: Modifier = Modifier,
     isButtonEnabled: Boolean = true,
     containerColor: Color = Color.White,
-    disabledContainerColor: Color = Color.LightGray,
+    disabledContainerColor: Color = Color.White.copy(alpha = 0.5f),
     textColor: Color = Color.Black,
-    textColorDisabled: Color = Color.Black,
+    textColorDisabled: Color = Color.LightGray,
     radius: Dp = 4.dp,
     borderColor: Color = Color.Transparent,
     textStyle: TextStyle = MaterialTheme.typography.labelLarge,
@@ -192,7 +182,13 @@ fun FactItem(
             .fillMaxWidth()
             .background(
                 color = Color.White.copy(alpha = 0.1f),
-                shape = RoundedCornerShape(8.dp))
+                shape = RoundedCornerShape(8.dp)
+            )
+            .border(
+                width = 1.dp,
+                color = Color.White.copy(alpha = 0.5f),
+                shape = RoundedCornerShape(8.dp)
+            )
             .clickable { onItemClick() }
             .padding(horizontal = 8.dp, vertical = 8.dp)
     ) {

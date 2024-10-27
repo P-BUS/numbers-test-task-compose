@@ -66,10 +66,10 @@ fun FactSection(
             maxLines = 1,
             style = MaterialTheme.typography.headlineLarge.copy(
                 color = Color.White,
-                fontSize = 32.sp
+                fontSize = 64.sp
             )
         )
-        Spacer(modifier = Modifier.width(40.dp))
+        Spacer(modifier = Modifier.width(60.dp))
         Text(
             text = fact,
             textAlign = TextAlign.Center,
