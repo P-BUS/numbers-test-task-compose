@@ -38,6 +38,7 @@ fun NumberFactScreen(
     ) {
         NavigateBackIcon(
             modifier = Modifier
+                .padding(top = 16.dp)
                 .align(Alignment.TopStart),
             onBackIconClicked = navigateBack
         )

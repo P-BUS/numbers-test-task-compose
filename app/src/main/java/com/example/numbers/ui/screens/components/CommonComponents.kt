@@ -114,6 +114,7 @@ fun DefaultInputField(
             editTextInput = filledText.also(onValueChange)
         },
         modifier = modifier
+            .fillMaxWidth()
             .onFocusChanged {
                 if (!it.isFocused && wasFocused) {
                     onInputComplete(editTextInput)
