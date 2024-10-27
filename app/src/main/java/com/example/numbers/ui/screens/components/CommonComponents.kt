@@ -1,6 +1,7 @@
 package com.example.numbers.ui.screens.components
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -120,7 +121,6 @@ fun DefaultInputField(
                     return@OutlinedTextField
                 }
             }
-
             editTextInput = filledText.also(onValueChange)
         },
         modifier = modifier
@@ -142,7 +142,6 @@ fun DefaultInputField(
         ),
         keyboardActions = KeyboardActions(
             onDone = {
-//                onInputComplete(editTextInput)
                 focusManager.clearFocus()
             }
         ),
@@ -150,14 +149,14 @@ fun DefaultInputField(
         shape = RoundedCornerShape(4.dp),
         colors = OutlinedTextFieldDefaults.colors(
             focusedTextColor = Color.White,
-            unfocusedTextColor = Color.White,
+            unfocusedTextColor = Color.Gray,
             errorTextColor = Color.White,
 
             focusedContainerColor = Color.White.copy(alpha = 0.1f),
             unfocusedContainerColor = Color.White.copy(alpha = 0.1f),
             errorContainerColor = Color.White.copy(alpha = 0.1f),
 
-            focusedBorderColor = Color.Blue,
+            focusedBorderColor = Color.White,
             unfocusedBorderColor = Color.Transparent,
             errorBorderColor = Color.Red,
 
@@ -169,7 +168,7 @@ fun DefaultInputField(
             focusedSupportingTextColor = Color.White,
             unfocusedSupportingTextColor = Color.White,
 
-            cursorColor = Color.Blue
+            cursorColor = Color.White
         ),
         isError = errorText.isNotEmpty() or forceError,
         supportingText = {
@@ -185,18 +184,24 @@ fun DefaultInputField(
 @Composable
 fun FactItem(
     modifier: Modifier = Modifier,
-    number: String,
     fact: String,
     onItemClick: () -> Unit,
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
+            .background(
+                color = Color.White.copy(alpha = 0.1f),
+                shape = RoundedCornerShape(8.dp))
             .clickable { onItemClick() }
+            .padding(horizontal = 8.dp, vertical = 8.dp)
     ) {
-        Text(text = number, maxLines = 1)
-        Spacer(modifier = Modifier.width(8.dp))
-        Text(text = fact, maxLines = 1, overflow = TextOverflow.Ellipsis)
+        Text(
+            text = fact,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            style = MaterialTheme.typography.labelLarge.copy(color = Color.LightGray)
+        )
     }
 }
 
@@ -205,7 +210,7 @@ fun NavigateBackIcon(
     modifier: Modifier = Modifier,
     onBackIconClicked: () -> Unit,
     containerColor: Color = Color.Transparent,
-    iconColor: Color = Color.Black,
+    iconColor: Color = Color.White,
 ) {
     Surface(
         modifier = modifier

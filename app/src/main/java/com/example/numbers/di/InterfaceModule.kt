@@ -4,8 +4,8 @@ import com.example.numbers.data.local.database.NumberFactsLocalDataSource
 import com.example.numbers.data.local.database.NumberFactsLocalDataSourceImpl
 import com.example.numbers.data.remote.NumberFactsRemoteDataSource
 import com.example.numbers.data.remote.NumberFactsRemoteDataSourceImpl
+import com.example.numbers.data.repository.NumberFactsRepository
 import com.example.numbers.data.repository.NumberFactsRepositoryImpl
-import com.example.numbers.domain_doineedthis.model.NumberFactsRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

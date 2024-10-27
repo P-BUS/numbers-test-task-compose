@@ -16,11 +16,10 @@ import com.example.numbers.ui.screens.search.SearchViewModel
 
 @Composable
 fun AppNavigation(
-    modifier: Modifier,
     navController: NavHostController
 ) {
     NavHost(
-        modifier = modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
         navController = navController,
         startDestination = NavSearchScreen

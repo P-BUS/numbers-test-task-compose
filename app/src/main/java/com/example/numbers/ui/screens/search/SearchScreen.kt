@@ -1,9 +1,16 @@
 package com.example.numbers.ui.screens.search
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
@@ -14,9 +21,11 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.numbers.R
 import com.example.numbers.ui.navigation.NavigationAction
@@ -68,12 +77,17 @@ fun SearchLayout(
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color.LightGray)
+            .background(color = Color.Black)
+            .padding(horizontal = 20.dp)
+            .statusBarsPadding()
+            .navigationBarsPadding()
     ) {
         Column(
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Spacer(modifier = Modifier.height(40.dp))
             DefaultInputField(
                 onInputComplete = {
                     scope.launch {
@@ -85,6 +99,7 @@ fun SearchLayout(
                 },
                 textHint = stringResource(R.string.enter_the_number)
             )
+            Spacer(modifier = Modifier.height(16.dp))
             BaseOutlinedButton(
                 buttonText = stringResource(R.string.get_fact),
                 onButtonClick = {
@@ -95,6 +110,7 @@ fun SearchLayout(
                 },
                 isButtonEnabled = number.isNotEmpty()
             )
+            Spacer(modifier = Modifier.height(8.dp))
             BaseOutlinedButton(
                 buttonText = stringResource(R.string.get_fact_random),
                 onButtonClick = {
@@ -104,13 +120,16 @@ fun SearchLayout(
                     }
                 }
             )
+            Spacer(modifier = Modifier.height(30.dp))
             LazyColumn(
                 state = listState,
-                reverseLayout = true
+                reverseLayout = true,
+                contentPadding = PaddingValues(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                items(uiState.factsList) { item ->
+                items(items = uiState.factsList) { item ->
                     FactItem(
-                        number = item.number,
+                        // we can pass number here also but it is already in the fact text
                         fact = item.fact,
                         onItemClick = { uiAction(SearchAction.OnItemClick(item)) }
                     )
