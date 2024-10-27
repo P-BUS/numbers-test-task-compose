@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyListState
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
@@ -31,6 +32,8 @@ import com.example.numbers.ui.navigation.NavigationAction
 import com.example.numbers.ui.screens.components.BaseOutlinedButton
 import com.example.numbers.ui.screens.components.DefaultInputField
 import com.example.numbers.ui.screens.components.FactItem
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @Composable
@@ -89,9 +92,10 @@ fun SearchLayout(
             Spacer(modifier = Modifier.height(40.dp))
             DefaultInputField(
                 onInputComplete = {
-                    scope.launch {
-                        listState.animateScrollToItem(uiState.factsList.lastIndex)
-                    }
+                    scope.scrollToFirstItem(
+                        lastIndex = uiState.factsList.lastIndex,
+                        listStateProvider = { listState }
+                    )
                 },
                 onValueChange = { newValue ->
                     number = newValue
@@ -103,9 +107,10 @@ fun SearchLayout(
                 buttonText = stringResource(R.string.get_fact),
                 onButtonClick = {
                     uiAction(SearchAction.OnNumberSubmit(number))
-                    scope.launch {
-                        listState.animateScrollToItem(uiState.factsList.lastIndex)
-                    }
+                    scope.scrollToFirstItem(
+                        lastIndex = uiState.factsList.lastIndex,
+                        listStateProvider = { listState }
+                    )
                 },
                 isButtonEnabled = number.isNotEmpty()
             )
@@ -114,9 +119,10 @@ fun SearchLayout(
                 buttonText = stringResource(R.string.get_fact_random),
                 onButtonClick = {
                     uiAction(SearchAction.OnRandomFactClick)
-                    scope.launch {
-                        listState.animateScrollToItem(uiState.factsList.lastIndex)
-                    }
+                    scope.scrollToFirstItem(
+                        lastIndex = uiState.factsList.lastIndex,
+                        listStateProvider = { listState }
+                    )
                 }
             )
             Spacer(modifier = Modifier.height(30.dp))
@@ -134,5 +140,12 @@ fun SearchLayout(
                 }
             }
         }
+    }
+}
+
+fun CoroutineScope.scrollToFirstItem(lastIndex: Int, listStateProvider: () -> LazyListState) {
+    this.launch {
+        delay(500)
+        if (lastIndex >= 0) listStateProvider().animateScrollToItem(lastIndex)
     }
 }
