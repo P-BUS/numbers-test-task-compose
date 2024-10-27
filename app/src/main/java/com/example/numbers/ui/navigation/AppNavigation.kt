@@ -23,23 +23,26 @@ fun AppNavigation(
         modifier = modifier.fillMaxSize(),
         contentAlignment = Alignment.Center,
         navController = navController,
-        startDestination = Search
+        startDestination = NavSearchScreen
     ) {
-        composable<Search> {
+        composable<NavSearchScreen> {
             val searchViewModel = hiltViewModel<SearchViewModel>()
             SearchScreen(
                 viewModel = searchViewModel,
-                navigateToNumberFact = { numberFact ->
-                    navController.navigate(numberFact)
+                navigateToNumberFact = { number, fact ->
+                    navController.navigate(NavNumberFactScreen(number, fact)) {
+                        launchSingleTop = true
+                    }
                 }
             )
         }
-        composable<NumberFact> { backStackEntry ->
+        composable<NavNumberFactScreen> { backStackEntry ->
             val numberFactViewModel = hiltViewModel<NumberFactViewModel>()
-            val numberFact: NumberFact = backStackEntry.toRoute()
+            val numberFactScreen: NavNumberFactScreen = backStackEntry.toRoute()
             NumberFactScreen(
                 viewModel = numberFactViewModel,
-                number = numberFact,
+                number = numberFactScreen.number,
+                fact = numberFactScreen.fact,
                 navigateBack = { navController.popBackStack() }
             )
         }

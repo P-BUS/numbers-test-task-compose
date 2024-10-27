@@ -3,7 +3,7 @@ package com.example.numbers.ui.navigation
 import kotlinx.serialization.Serializable
 
 @Serializable
-object Search
+object NavSearchScreen
 
 @Serializable
-data class NumberFact(val number: Int)
+data class NavNumberFactScreen(val number: String, val fact: String)

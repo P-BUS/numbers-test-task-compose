@@ -81,13 +81,19 @@ class SearchViewModel @Inject constructor(
 
     private fun retrieveFact(number: String) {
         viewModelScope.launch {
+            // usually we retrieve it from UseCase
             repository.retrieveFact(number)
         }
     }
 
     private fun retrieveRandomFact() {
         viewModelScope.launch {
+            // usually we retrieve it from UseCase
             repository.retrieveRandomFact()
         }
+    }
+
+    fun handleAction() {
+        _navigationAction.update { NavigationAction.None }
     }
 }

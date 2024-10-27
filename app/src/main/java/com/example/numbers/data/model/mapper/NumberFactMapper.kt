@@ -9,7 +9,7 @@ class NumberFactMapper @Inject constructor() {
     fun toDomainModel(factsList: List<NumberFactEntity>): List<NumberFact> {
         return factsList.map {
             NumberFact(
-                numberFact = it.numberFact,
+                fact = it.numberFact,
                 number = it.number
             )
         }
