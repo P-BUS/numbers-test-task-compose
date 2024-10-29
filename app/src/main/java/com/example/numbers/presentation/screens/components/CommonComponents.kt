@@ -1,4 +1,4 @@
-package com.example.numbers.ui.screens.components
+package com.example.numbers.presentation.screens.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background

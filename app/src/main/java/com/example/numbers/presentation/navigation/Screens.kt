@@ -1,4 +1,4 @@
-package com.example.numbers.ui.navigation
+package com.example.numbers.presentation.navigation
 
 import kotlinx.serialization.Serializable
 

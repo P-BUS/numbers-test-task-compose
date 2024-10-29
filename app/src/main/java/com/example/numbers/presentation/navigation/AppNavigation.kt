@@ -1,4 +1,4 @@
-package com.example.numbers.ui.navigation
+package com.example.numbers.presentation.navigation
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
@@ -9,10 +9,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.example.numbers.ui.screens.numberfact.NumberFactScreen
-import com.example.numbers.ui.screens.numberfact.NumberFactViewModel
-import com.example.numbers.ui.screens.search.SearchScreen
-import com.example.numbers.ui.screens.search.SearchViewModel
+import com.example.numbers.presentation.screens.numberfact.NumberFactScreen
+import com.example.numbers.presentation.screens.numberfact.NumberFactViewModel
+import com.example.numbers.presentation.screens.search.SearchScreen
+import com.example.numbers.presentation.screens.search.SearchViewModel
 
 @Composable
 fun AppNavigation(

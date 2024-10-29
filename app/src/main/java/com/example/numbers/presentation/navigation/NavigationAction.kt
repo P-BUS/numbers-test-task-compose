@@ -1,6 +1,6 @@
-package com.example.numbers.ui.navigation
+package com.example.numbers.presentation.navigation
 
-import com.example.numbers.domain_doineedthis.model.NumberFact
+import com.example.numbers.domain.model.NumberFact
 
 sealed class NavigationAction {
     data class NavigateToNumberFact(val numberFact: NumberFact) : NavigationAction()

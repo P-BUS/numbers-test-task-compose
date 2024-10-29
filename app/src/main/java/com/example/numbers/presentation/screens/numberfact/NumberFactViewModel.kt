@@ -1,4 +1,4 @@
-package com.example.numbers.ui.screens.numberfact
+package com.example.numbers.presentation.screens.numberfact
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel

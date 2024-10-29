@@ -1,4 +1,4 @@
-package com.example.numbers.domain_doineedthis.model
+package com.example.numbers.domain.model
 
 import kotlinx.serialization.Serializable
 

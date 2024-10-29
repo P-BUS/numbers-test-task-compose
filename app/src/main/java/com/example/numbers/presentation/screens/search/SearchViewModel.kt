@@ -1,11 +1,11 @@
-package com.example.numbers.ui.screens.search
+package com.example.numbers.presentation.screens.search
 
 import androidx.compose.runtime.Immutable
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.numbers.data.repository.NumberFactsRepository
-import com.example.numbers.domain_doineedthis.model.NumberFact
-import com.example.numbers.ui.navigation.NavigationAction
+import com.example.numbers.domain.model.NumberFact
+import com.example.numbers.presentation.navigation.NavigationAction
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted

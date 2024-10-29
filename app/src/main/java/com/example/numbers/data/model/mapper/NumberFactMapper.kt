@@ -2,7 +2,7 @@ package com.example.numbers.data.model.mapper
 
 import com.example.numbers.data.local.database.NumberFactEntity
 import com.example.numbers.data.model.NumberFactDto
-import com.example.numbers.domain_doineedthis.model.NumberFact
+import com.example.numbers.domain.model.NumberFact
 import javax.inject.Inject
 
 class NumberFactMapper @Inject constructor() {

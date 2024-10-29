@@ -1,4 +1,4 @@
-package com.example.numbers.ui
+package com.example.numbers.presentation
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
@@ -8,8 +8,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
-import com.example.numbers.ui.navigation.AppNavigation
-import com.example.numbers.ui.theme.NumbersTheme
+import com.example.numbers.presentation.navigation.AppNavigation
+import com.example.numbers.presentation.theme.NumbersTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

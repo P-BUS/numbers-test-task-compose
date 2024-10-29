@@ -1,4 +1,4 @@
-package com.example.numbers.ui.screens.search
+package com.example.numbers.presentation.screens.search
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -28,10 +28,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.numbers.R
-import com.example.numbers.ui.navigation.NavigationAction
-import com.example.numbers.ui.screens.components.BaseOutlinedButton
-import com.example.numbers.ui.screens.components.DefaultInputField
-import com.example.numbers.ui.screens.components.FactItem
+import com.example.numbers.presentation.navigation.NavigationAction
+import com.example.numbers.presentation.screens.components.BaseOutlinedButton
+import com.example.numbers.presentation.screens.components.DefaultInputField
+import com.example.numbers.presentation.screens.components.FactItem
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
